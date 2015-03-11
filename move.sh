@@ -9,10 +9,12 @@ do
  # make trash directory if there isn't one already
  mkdir -p transformed/final/trash
  # get the width of the image
- SIZE=`identify -format "%w" $a`
+ width=`identify -format "%w" $a`
+ height=`identify -format "%h" $a`
+ 
  # check to see if the width of the image is less than 400px
  # if it is move the image to the trash directory
- if [ $SIZE -lt 450 ]; then
+ if [ $width -lt 500 ] || [ $height -lt 500 ]; then
 
   original_string=$a
   new_string=''
